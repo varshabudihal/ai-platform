@@ -1,0 +1,18 @@
+name: keras-Lstm-example
+
+conda_env: conda.yaml
+
+entry_points:
+  # train LSTM Sequential model
+  main:
+    parameters:
+	training_data: { type: int, default: ./ DataReader(stock,'yahoo',start,end)}
+	epochs: {type: int, default:50}
+	batch_size: {type: int, default:32}
+	test_ratio: {type: float, default: 0.2}
+    command: "python apple_stock_using_rnn.py 
+			      --training-data {training}
+                              --batch-size {batch_size}
+                              --epochs {epochs}
+			      --test_ratio {test_ratio}"
+      
